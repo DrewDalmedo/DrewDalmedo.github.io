@@ -1,11 +1,11 @@
 # Site settings
 author: Andrew Dalmedo
-title: 
+title: Drew's Tech Spot
 header-img: img/home-bg.png
 email: andrewdalmedo@gmail.com
 copyright_name: Andrew Dalmedo
 description: > # this means to ignore newlines until "baseurl:"
-  
+  A techy spot for tech
 baseurl: "" # the subpath of your site, e.g. /blog
 twitter_username: 
 github_username:  DrewDalmedo
