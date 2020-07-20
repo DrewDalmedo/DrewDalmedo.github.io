@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "A more detailed look at ActionView"
-date:       2020-07-20 09:04:06 +0000
+date:       2020-07-20 05:04:07 -0400
 permalink:  a_more_detailed_look_at_actionview
 ---
 
@@ -15,7 +15,7 @@ The one technology I got tripped up on the most was, by far, [ActionView](https:
 Partials open up several interesting possibilities in creating templates. They make it possible for us to refactor our code and make it more DRY (which stands for “Don’t Repeat Yourself”), resulting in more flexible and robust programs which can cater to a wide range of  use cases. Take, for example, a form for a guide:
 
 ```
-# show.html.erb
+# new.html.erb
 
 <%= form_with model: @guide do |f| %>
    <%= f.hidden_field :user_id, value: @user.id %>
@@ -29,7 +29,7 @@ Partials open up several interesting possibilities in creating templates. They m
 <% end %>
 ```
 
-In this form, we’re expecting two instance variables to be present in the controller actions: `@guide`, which would hold the guide with all the data we’re working with in the form, and `@user`, which would hold the currently logged in user. This may work for our show form, but what about our edit form? What if we want to specify another user in the hidden field than we have in our controller? What if we want to have a different guide being displayed while creating another one? All of this can be solved by moving this form to a partial and replacing the instance variables with locals:
+In this form, we’re expecting two instance variables to be present in the controller actions: `@guide`, which would hold the guide with all the data we’re working with in the form, and `@user`, which would hold the currently logged in user. This may work for our new form, but what about our edit form? What if we want to specify another user in the hidden field than we have in our controller? What if we want to have a different guide being displayed while creating another one? All of this can be solved by moving this form to a partial and replacing the instance variables with locals:
 
 ```
 #_form.html.erb
@@ -48,7 +48,7 @@ In this form, we’re expecting two instance variables to be present in the cont
 
 After that, we can then simply render the partial in any template we wish by writing the following:
 ```
-#show.html.erb
+# new.html.erb
 <%= render partial: 'view_directory_here/form', locals: {guide: Guide.new, user: @user } %>
 ```
  
